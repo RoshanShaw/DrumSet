@@ -7,6 +7,7 @@
             
             var buttonClicked= this.innerHTML;
             soundplay(buttonClicked);
+            addAnimation(buttonClicked);
            
         });
         
@@ -16,6 +17,7 @@
     {
           console.log("key "+event.key);
           soundplay(event.key);
+          addAnimation(event.key);
     })
 function soundplay(buttonClicked)
 {
@@ -83,3 +85,13 @@ function soundplay(buttonClicked)
 }
     
 
+function addAnimation(classButton)
+{
+   //alert("iam inside");
+   var activebutton=document.querySelector("."+classButton);
+   activebutton.classList.add("pressed");
+   setTimeout(function()
+   {
+      activebutton.classList.remove("pressed");
+   },100);
+}
